@@ -13,7 +13,8 @@ hist = ggplot(data = dat) +
   geom_density(aes(x = x), color = "red") +
   theme_bw() +
   ylab("Density") +
-  ggtitle("Proportion Satisfaction n = 1004")
+  ggtitle("Proportion Satisfaction n = 1004")+
+  xlim(0.3, 0.5)
   
 
 (lower.val = quantile(dat$x, probs = .025))
@@ -30,7 +31,8 @@ hist2 = ggplot(data = dat2) +
   geom_density(aes(x = x), color = "red") +
   theme_bw() +
   ylab("Density") +
-  ggtitle("Proportion Satisfaction n = 2008")
+  ggtitle("Proportion Satisfaction n = 2008") +
+  xlim(0.3, 0.5)
 
 (lower.val2 = quantile(dat2$x, probs = .025))
 (upper.val2 = quantile(dat2$x, probs = .975))
@@ -104,3 +106,43 @@ raster.plot = ggplot() +
 raster.plot
 view(n.p.data)
 print("d")
+
+#################
+# Step 4
+#################
+wilson.data = tibble()
+for(j in 1:99)
+{
+  curr.vector = vector()
+  #Iterates through the different sizes
+  for(i in 0:190){
+    size.curr = 100 + (i)*10
+    curr.sim.data = rbinom(n = 10000, size = size.curr, prob = probabilities.vector[j])/size.curr
+    upper.sim = quantile(curr.sim.data, probs = .975)
+    dat.mean = mean(curr.sim.data)
+    z.val = 1.96
+    wilson.moe = z.val*
+      (sqrt(size.curr*dat.mean*(1-dat.mean) + z.val/4))/
+      (size.curr + z.val^2)
+    curr.vector = append(curr.vector, wilson.moe)
+  }
+  curr.vector = tibble(wilson.moe = curr.vector) |>
+    bind_cols(tibble(size = seq(100,2000,10))) |>
+    bind_cols(tibble(probability = rep(probabilities.vector[j], 191)))
+  if(j == 1){
+    wilson.data = curr.vector
+  }
+  else{
+    wilson.data = bind_rows(wilson.data, curr.vector)
+  }
+}
+
+wilson.raster.plot = ggplot() + 
+  geom_raster(data = wilson.data, aes(x = size, y = probability, fill = wilson.moe)) +
+  scale_fill_viridis_c() + 
+  xlab("n") + 
+  ylab("Probability") + 
+  ggtitle("Wilson Margin Of Error With Respect To n And Probability") +
+  theme_bw()
+wilson.raster.plot
+view(wilson.data)
