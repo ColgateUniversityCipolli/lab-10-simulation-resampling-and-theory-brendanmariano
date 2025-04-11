@@ -118,7 +118,8 @@ raster.plot = ggplot() +
   xlab("n") + 
   ylab("Probability") + 
   ggtitle("Margin Of Error With Respect To n And Probability") +
-  theme_bw()
+  theme_bw() +
+  labs(fill = "MOE")
 raster.plot
 view(n.p.data)
 
@@ -158,8 +159,9 @@ wilson.raster.plot = ggplot() +
   xlab("n") + 
   ylab("Probability") + 
   ggtitle("Wilson Margin Of Error With Respect To n And Probability") +
-  theme_bw()
-(hist + hist2)/hist.resample
+  theme_bw() + 
+  labs(fill = "Wilson MOE")
+hist  + hist2/ hist.resample
 raster.plot + wilson.raster.plot
 view(wilson.data)
 view(dat.table)
