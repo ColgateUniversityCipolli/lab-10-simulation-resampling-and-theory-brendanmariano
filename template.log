@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  11 APR 2025 17:19
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.4.9)  11 APR 2025 21:23
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -252,7 +252,7 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@count@id=\count295
 \enitdp@description=\count296
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 61.
+Package hyperref Info: Option `colorlinks' set `true' on input line 57.
 (/Users/brendanmariano/Library/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip57
@@ -380,31 +380,31 @@ LaTeX Warning: Label `moe' multiply defined.
 )
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 75.
-LaTeX Font Info:    ... okay on input line 75.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
+LaTeX Font Info:    ... okay on input line 70.
 (/Users/brendanmariano/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
 (/Users/brendanmariano/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring ON on input line 75.
+Package hyperref Info: Link coloring ON on input line 70.
 (./template.out) (./template.out)
 \@outlinefile=\write3
 \openout3 = `template.out'.
@@ -445,17 +445,17 @@ Package hyperref Info: Link coloring ON on input line 75.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 85.
 (/Users/brendanmariano/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 90.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 85.
 (/Users/brendanmariano/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 Package caption Warning: The option `hypcap=true' will be ignored for this
-(caption)                particular \caption on input line 119.
+(caption)                particular \caption on input line 110.
 See the caption package documentation for explanation.
 
 [1
@@ -466,12 +466,12 @@ See the caption package documentation for explanation.
 <graphs.pdf, id=51, 1087.06125pt x 602.25pt>
 File: graphs.pdf Graphic file (type pdf)
 <use graphs.pdf>
-Package pdftex.def Info: graphs.pdf  used on input line 161.
+Package pdftex.def Info: graphs.pdf  used on input line 142.
 (pdftex.def)             Requested size: 380.47714pt x 210.79065pt.
 <raster.pdf, id=52, 1087.06125pt x 602.25pt>
 File: raster.pdf Graphic file (type pdf)
 <use raster.pdf>
-Package pdftex.def Info: raster.pdf  used on input line 168.
+Package pdftex.def Info: raster.pdf  used on input line 150.
 (pdftex.def)             Requested size: 380.47714pt x 210.79065pt.
 
 
@@ -491,13 +491,13 @@ Package rerunfilecheck Info: File `template.out' has not changed.
 Here is how much of TeX's memory you used:
  12237 strings out of 471607
  195709 string characters out of 5519802
- 617275 words of memory out of 5000000
+ 616275 words of memory out of 5000000
  38634 multiletter control sequences out of 15000+600000
  635506 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 75i,8n,79p,1037b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,8n,79p,1120b,588s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmti7.pfb></Users/brendanmariano/Library/TinyTeX/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb>
-Output written on template.pdf (3 pages, 192801 bytes).
+Output written on template.pdf (3 pages, 192831 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream

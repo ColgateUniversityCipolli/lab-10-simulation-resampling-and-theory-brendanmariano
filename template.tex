@@ -50,14 +50,10 @@
 
 \usepackage{alltt}
 \usepackage{amsmath} %This allows me to use the align functionality.
-                     %If you find yourself trying to replicate
-                     %something you found online, ensure you're
-                     %loading the necessary packages!
 \usepackage{amsfonts}%Math font
 \usepackage{graphicx}%For including graphics
 \usepackage{hyperref}%For Hyperlinks
 \usepackage[shortlabels]{enumitem}% For enumerated lists with labels specified
-                                  % We had to run tlmgr_install("enumitem") in R
 \hypersetup{colorlinks = true,citecolor=black} %set citations to have black (not green) color
 \usepackage{natbib}        %For the bibliography
 \setlength{\bibsep}{0pt plus 0.3ex}
@@ -65,9 +61,8 @@
 \usepackage[margin=0.50in]{geometry}
 \usepackage{float}
 \usepackage{multicol}
-
-%fix for figures
 \usepackage{caption}
+
 \newenvironment{Figure}
   {\par\medskip\noindent\minipage{\linewidth}}
   {\endminipage\par\medskip}
@@ -89,86 +84,73 @@
 \maketitle
 
 \begin{multicols}{2}
-%\raggedcolumns % If your spacing gets messed up try uncommenting 
-                % this line
+
 \begin{abstract}
-This document provides an analysis of whether Gallup's assertion about his margin of error values during a poll is valid. We additionally look at the margin of error over different sample size and probability values to make a general conclusion.
+This document provides an analysis of whether Gallup's assertion about his margin of error values during a poll is valid. We additionally look at the margin of error over different sample sizes and probability values to make a general conclusion.
 \end{abstract}
 
 \noindent \textbf{Keywords:} Resampling; Simulations; Margin of Error; Wilson's Estimate
 
 \section{Introduction}
-Recently, an author named Gallup published a document where he analyzed the proportion of people who were currently satisfied with the position of the United States. Within it, he made a claim stating that with 1,000 people in his sample he had a margin of error of 4\% and that with 2,000 it is 2\%. Our goal in this lab was to assess his claim and to generalize our findings to other sample sizes from 0 to 3,000 and other probabilities. We went about solving the first part of our problem by simulating his experiment using the same chance of satisfaction and sample size; to verify our findings, we also analyzed the margin of error using resampling. We  address the second part of our question by calculating the margin of error from a simulation with various n and p values and by supporting our findings using the actual margin of error calculation (the Wilson estimate). 
-
+Recently, an author named Gallup published a document where he analyzed the proportion of people who were currently satisfied with the position of the United States. Within it, he made a claim stating that with 1,000 people in his sample he had a margin of error of 4\% and that with 2,000 it is 2\%. Our goal in this lab was to assess his claim and to generalize our findings for other sample sizes from 0 to 3,000 and for probabilities from .01 to .99. We went about solving the first part of our problem by simulating his experiment using the same chance of satisfaction and the same sample size; to verify our findings, we also reproduced the data using resampling and analyzed the margin of error. In order to analyze the margin of error for different sample sizes and probabilities, we calculated it for each iteration of a series of simulations with various n and p values. We also supported our findings by additionally calculating the exact margin of error using the Wilson Estimate. 
 
 \begin{Figure}
-% latex table generated in R 4.4.2 by xtable 1.8-4 package
-% Wed Apr  9 18:05:43 2025
 \centering
 \begin{tabular}{rlcr}
   \hline
  & Data & Margin of Error & Size \\ 
   \hline
 1 & Sample & 0.03 & 1004.00 \\ 
-  2 & Sample & 0.02 & 2008.00 \\ 
-  3 & Resample & 0.03 & 1004.00 \\ 
-  4 & Gallup & 4.00 & 1004.00 \\ 
-  5 & Gallup & 2.00 & 2008.00 \\ 
-   \hline
+2 & Sample & 0.02 & 2008.00 \\ 
+3 & Resample & 0.03 & 1004.00 \\ 
+4 & Gallup & 4.00 & 1004.00 \\ 
+5 & Gallup & 2.00 & 2008.00 \\ 
+  \hline
 \end{tabular}
 \captionof{table}{Comparing Margin of Error} 
 \end{Figure}
 
-\section{Methods}
-Our overall goal was assess how valid Gallup's margin of error estimations were. Our first objective was to test Gallup's claim about having a 4\% margin of error by using a basic simulation which had 10,000 polls, the same probability(.39) and and equivalent sample size (1004). As a note, we also used \citep{tidyverse} in order to manage our data frames. Using this data, we produced a graph using ggplot \citep{ggplot2} to view the distribution of the proportion satisfied. Since Gallup also claimed that the margin of error for 2004 would be 2\%, we ran the same simulation using a sample size of 2008 and plotted that data. We later tested Gallup's theory by producing data using re sampling instead of a simulation since it is possible that it may only be true for one method and plotted the data for this. 
 
-Another possibility is that Gallup's theory may only be true for certain probabilities or sample sizes. As a result, we calculated the margin of error, using the simplified formula, for each scenario a simulation with 10,000 polls from sample sizes 100 to 3000 and with probabilities from .01 to .99. We plotted the margin of error in a raster plot to show its value for all of the given parameters. Just in case our initial formula was not accurate,  we also calculated the margin of error with the same range of parameters using the actual formula for margin of error (Wilson's formula) and put it into a separate raster plot for comparison, which ultimately allowed us to observe how n impacts the margin of error. 
+
+\section{Methods}
+Our main goal was to assess how valid Gallup's margin of error values were. We first tested Gallup's claim regarding a 4\% margin of error for a sample size of 1004. We produced our data by using a basic simulation which had 10,000 polls, the same probability (.39), and an equivalent sample size (1004). As a note, we also used \citep{tidyverse} in order to manage our data frames. Using this data, we produced a graph using ggplot \citep{ggplot2} to view the distribution of the proportion satisfied. Additionally, we produced data using resampling since it is possible that his findings may only be true for one method. We plotted both graphs side by side for comparison. Since Gallup also claimed that the margin of error for 2008 would be 2\%, we ran the same simulation using a sample size of 2008 and also plotted that data. 
+
+Another possibility is that Gallup's theory may only be true for certain probabilities or sample sizes. As a result, we calculated the margin of error, using the simplified formula, for each scenario in a simulation with 10,000 polls from sample sizes 100 to 3000 and with probabilities from .01 to .99. We plotted the margin of error in a raster plot to show its value for all of the given parameters. Just in case our initial formula was not accurate, we also calculated the margin of error with the same range of parameters using the actual formula for margin of error (Wilson's formula) and put it into a separate raster plot for comparison, which ultimately allowed us to observe how n impacts the margin of error. 
 
 \section{Results}
-We found in the first part of the lab that the margin of errors we calculated (in the table above) were inconsistent with the numbers proposed by Gallup. For a size of 1004, we found that the margin of error when we produced our data using a simulation and when we used re sampling were the same at 3\% which are both less than Gallup's value. Additionally, both of the graphs were normally distributed and centered at .39 as seen in the graphs, which shows that both methods have the same proportion of people satisfied as the actual poll. When created the data using a simulation with a size of 2008, we found that the data was still normally distributed around .39, but margin of error was around 2\%, which aligns with Gallup's value. The findings above ultimately disprove Gallup's first claim, but supports his assertion that there will be a 2\% margin of error with a sample size of 2008. 
+We found in the first part of the lab that the margins of error we calculated (in the table above) were inconsistent with the numbers proposed by Gallup. For a size of 1004, we found that the margin of error when we produced our data using a simulation and when we used resampling were the same at 3\%, which are both less than Gallup's value. Additionally, both of the graphs were normally distributed and centered at .39, as seen in the graphs, which shows that both methods have the same proportion of people satisfied as the actual poll. When we created the data using a simulation with a size of 2008, we found that the data was still normally distributed around .39, but the margin of error was around 2\%, which aligns with Gallup's value. The findings above ultimately disprove Gallup's first claim but support his assertion that there will be a 2\% margin of error with a sample size of 2008. 
 
-For our simulation where we used different n and p values, we found through our raster plot below that the margin of error was moderate to a darker blue at any place where n is greater than 1,000. This means that the margin of error is .3 or less with any sample size greater than 1,000. The finding not only disproves Gallup's claim that there is a two point improvement from n = 1,000 to 2,000, but it ultimately shows that any margin of errors where n is greater than 1,000 are going to be marginally different at most. Our raster plot when we calculated margin of error using the Wilson estimate is identical, which validates our claim above. This also shows that margin of error can be calculated effectively without using the actual formula. 
-
-
-
+For our simulation where we used different n and p values, we found through our raster plot below that the margin of error was moderate to a darker blue at any place where n is greater than 1,000. This means that the margin of error is .3 or less with any sample size greater than 1,000. The finding not only disproves Gallup's claim that there is a two-point improvement from n = 1,000 to 2,000, but it ultimately shows that any margins of error where n is greater than 1,000 are going to be marginally different at most. Our raster plot when we calculated margin of error using the Wilson estimate is identical, which validates our claim above. This also shows that margin of error can be calculated effectively without using the actual formula. 
 
 \section{Discussion}
+From our initial results, we were able to disprove Gallup's claim that he had a 4\% margin of error with a sample size of 1,000. It was possible that our basic simulation wasn't entirely accurate at a sample size of 1,000 with its margin of error being 3\%, which is why we also performed resampling with the exact same data, which produced the same margin of error (3\%). By testing the margin of error with two different data production methods, we ultimately verified our finding that the actual margin of error is 3\% rather than Gallup's 4\%. Additionally, both of the distributions were centered at .39 and normal, which shows that our findings represent the probability in the actual poll. We did find that Gallup's 2\% margin of error was the correct number; however, his claim is still incorrect because the margin of error only drops one point after the increase in sample size as opposed to two. 
 
-  From our initial results, we were able to disprove Gallup's claim that he had a 4\% margin of error with a sample size of 1,000. It was possible that our basic simulation wasn't entirely accurate at a sample size of 1,000 with it's margin of error being 3\% which is why we also performed re sampling with the exact same data, which produced the same margin of error (3\%). By testing the margin of error with two different data production methods, we ultimately verified our finding that the actual margin of error is 3\% rather than Gallup's 4\%. Additionally, both of the distributions were centered at .39 and normal, which shows that our findings represent the probability in the actual poll. We did find that Gallup's 2\% margin of error was the correct number, however, his claim is still incorrect because the margin of error only drops one point after the increase in sample size as opposed to two. 
-  It also safe to conclude that any sample size above 1,000 will have a margin of error less than 3\%. In the raster plot, the points for a given n value that have a probability closest to .5 have the largest margin of error. The color at .39 is close to that at .5, which demonstrates they have very similar margin of error values. This shows that Gallup's claim is wrong for any probability at a sample size of 1,004. There is significant variation in color when n is less than 700, but once the sample size is 1,000, it is relatively constant, which shows that there is a negligible decrease in margin error after you increase the sample size to more than 1,000 no matter what the probability is. 
+It is also safe to conclude that any sample size above 1,000 will have a margin of error less than 3\%. In the raster plot, the points for a given n value that have a probability closest to .5 have the largest margin of error. The color at .39 is close to that at .5, which demonstrates they have very similar margin of error values. This shows that Gallup's claim is wrong for any probability at a sample size of 1,004. There is significant variation in color when n is less than 700, but once the sample size is 1,000, it is relatively constant, which shows that there is a negligible decrease in margin of error after you increase the sample size to more than 1,000 no matter what the probability is. 
 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Bibliography
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{2em}
-
-
 \begin{tiny}
 \bibliography{bib}
 \end{tiny}
 \end{multicols}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Appendix
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newpage
 \onecolumn
 \section{Appendix}
 
-  \begin{figure}[H]
-    \begin{center}
-       \includegraphics[scale=0.35]{graphs.pdf}
-       \caption{}
-     \label{moe}
-     \end{center}
-   \end{figure}
-   \begin{figure}[H]
-    \begin{center}
-       \includegraphics[scale=0.35]{raster.pdf}
-       \caption{}
-     \label{moe}
-     \end{center}
-   \end{figure}
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.35]{graphs.pdf}
+    \caption{}
+    \label{moe}
+  \end{center}
+\end{figure}
+
+\begin{figure}[H]
+  \begin{center}
+    \includegraphics[scale=0.35]{raster.pdf}
+    \caption{}
+    \label{moe}
+  \end{center}
+\end{figure}
 
 \end{document}
